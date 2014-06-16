@@ -27,5 +27,11 @@ public class Graph {
     }
     
     
+    public void addNode(Node pNode){
+        _nodes.add(pNode);
+    }
     
+    public void addArc(Node pOrigin, Node pDestination, int pWeight){
+        pOrigin.addArc(new Arc(pDestination, pWeight));
+    }
 }

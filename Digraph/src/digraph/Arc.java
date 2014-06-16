@@ -12,6 +12,34 @@ package digraph;
  */
 class Arc {
 
+    private Node _node;
+    private int _weight;
+    
+    public Arc(Node pNode, int pWeight){
+    
+        _node = pNode;
+        _weight = pWeight;
+    }
+
+    public Node getNode(){
+        return _node;
+    }
+    
+    public int getWeight() {
+        return _weight;
+    }
+    
+    public void setNode(Node pNode){
+        _node = pNode;
+    }
+    
+    public void setWeight(int pWeight){
+        _weight = pWeight;
+    }
+    
+    
+    
+    
     public Node getNode() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

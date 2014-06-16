@@ -23,18 +23,30 @@ public class Node {
         _arcs = new ArrayList();
     }
     public void addArc(Arc pArc){
-       if(searchArc(pArc)==null){
-           _arcs.add(pArc);
-       }
+       try{
+            if(searchArc(pArc)==null){
+                _arcs.add(pArc);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+               
+        }
     }
 
-    private Arc searchArc(Arc pArc) {
-        for(Arc arc: _arcs){
-            if(arc.getNode().getId()==pArc.getNode().getId()){
-                return arc;
+    public Arc searchArc(Arc pArc) {
+        try{
+            for(Arc arc: _arcs){
+                if(arc.getNode().getId()==pArc.getNode().getId()){
+                    return arc;
+                }
             }
+            return null;
+        }catch(Exception e){
+            return null;
         }
-        return null;
+    }
+    public int getId(){
+        return _id;
     }
     
     

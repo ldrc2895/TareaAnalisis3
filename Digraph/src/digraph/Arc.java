@@ -36,7 +36,5 @@ class Arc {
     public void setWeight(int pWeight){
         _weight = pWeight;
     }
-    
-    
-    
+
 }

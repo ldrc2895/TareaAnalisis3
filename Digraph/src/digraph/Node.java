@@ -16,11 +16,15 @@ public class Node {
     private  int _id ;
     private ArrayList <Arc> _arcs;
     private boolean _visited;
+    private double _minDistance;
+    private Node _previousNode;
 
     public Node(int pId) {
         this._id = pId;
         _visited = false;
         _arcs = new ArrayList();
+        _minDistance = Double.POSITIVE_INFINITY;
+        _previousNode = null;
     }
     public void addArc(Arc pArc){
        try{
@@ -48,6 +52,30 @@ public class Node {
     public int getId(){
         return _id;
     }
+   
+
+    public double getMinDistance() {
+        return _minDistance;
+    }
+
+    public void setMinDistance(double pMinDistance) {
+        this._minDistance = pMinDistance;
+    }
+
+    public ArrayList<Arc> getArcs() {
+        return _arcs;
+    }
+
+    public Node getPreviousNode() {
+        return _previousNode;
+    }
+
+    public void setPreviousNode(Node pPreviousNode) {
+        this._previousNode = pPreviousNode;
+    }
+    
+    
+    
     
     
     

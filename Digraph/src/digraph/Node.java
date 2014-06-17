@@ -6,80 +6,36 @@
 
 package digraph;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author LuisDiego
  */
-public class Node {
-    private  int _id ;
-    private ArrayList <Arc> _arcs;
-    private boolean _visited;
-    private double _minDistance;
-    private Node _previousNode;
-
-    public Node(int pId) {
-        this._id = pId;
-        _visited = false;
-        _arcs = new ArrayList();
-        _minDistance = Double.POSITIVE_INFINITY;
-        _previousNode = null;
-    }
-    public void addArc(Arc pArc){
-       try{
-            if(searchArc(pArc)==null){
-                _arcs.add(pArc);
-            }
-        }catch(Exception e){
-            e.printStackTrace();
-               
-        }
+public class Node implements Comparable<Node> {
+    private int _id;
+    boolean _visited = false;
+   
+    public Node(int pNodeId) {
+        _id = pNodeId;
     }
 
-    public Arc searchArc(Arc pArc) {
-        try{
-            for(Arc arc: _arcs){
-                if(arc.getNode().getId()==pArc.getNode().getId()){
-                    return arc;
-                }
-            }
-            return null;
-        }catch(Exception e){
-            return null;
-        }
-    }
-    public int getId(){
+    public int getId() {
         return _id;
     }
+
+    public boolean isVisited() {
+        return _visited;
+    }
+
+    public void setId(int pId) {
+        _id = pId;
+    }
+
+    public void setVisited(boolean pVisited) {
+        _visited = pVisited;
+    }
    
-
-    public double getMinDistance() {
-        return _minDistance;
+    @Override
+    public int compareTo(Node pNode) {
+        return pNode == this ? 0 : -1;
     }
-
-    public void setMinDistance(double pMinDistance) {
-        this._minDistance = pMinDistance;
-    }
-
-    public ArrayList<Arc> getArcs() {
-        return _arcs;
-    }
-
-    public Node getPreviousNode() {
-        return _previousNode;
-    }
-
-    public void setPreviousNode(Node pPreviousNode) {
-        this._previousNode = pPreviousNode;
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
